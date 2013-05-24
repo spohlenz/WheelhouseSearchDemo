@@ -64,5 +64,8 @@ module WheelhouseSearchDemo
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Enable system page creation by Developer users
+    config.wheelhouse.enable_system_pages = true
   end
 end

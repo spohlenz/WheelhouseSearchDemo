@@ -1,0 +1,29 @@
+<% node!(Wheelhouse::SystemPage.get("Search")) %>
+
+<%= @page.content %>
+
+<%= form_tag search_path, :method => :get do %>
+  <%= label_tag :q, "Search Query:" %>
+  <%= text_field_tag :q %>
+
+  <%= submit_tag "Go" %>
+<% end %>
+
+<div class="search-results">
+  <%= @results %>
+</div>
+
+<script>
+  $('form').submit(function() {
+    var url = $(this).attr('target');
+
+    $.ajax(url, {
+      data: $(this).serialize(),
+      success: function(data, status, xhr) {
+        $('.search-results').text(JSON.stringify(data));
+      }
+    });
+
+    return false;
+  });
+</script>

@@ -1,0 +1,28 @@
+<% layout.name = "Default Layout" %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <title><%= title %></title>
+    
+    <%= stylesheet "screen" %>
+    <%= javascript "jquery", "site" %>
+    
+    <!--[if lt IE 9]><%= javascript "html5" %><![endif]-->
+    
+    <%= favicon %>
+    <%= meta_tags %>
+  </head>
+
+  <body>
+    <h1><%= link site.name, "/" %></h1>
+    
+    <nav><%= navigation %></nav>
+    
+    <%= breadcrumbs %>
+    
+    <%= yield %>
+  </body>
+</html>
